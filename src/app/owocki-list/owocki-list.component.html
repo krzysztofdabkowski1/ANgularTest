@@ -1,0 +1,32 @@
+
+<div class="ms-5 mb-3" *ngIf="_searchbar">
+    <label for="new-owocek">Nazwa owocka: </label>
+    <input id="new-owocek" #owocekName />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="btn btn-success" (click)="add(owocekName.value); owocekName.value=''">
+      Dodaj owocka
+    </button>
+  </div>
+
+<div class="list-group">
+    <ul>
+      <li class="list-group-item list-group-item-action list-group-item-primary" 
+      *ngFor="let o of owocki" 
+      [class.list-group-item-dark]="o == selected">
+      <div class="row">
+        <div class="col-11">
+          <a class="text-decoration-none" routerLink="/owocki/details/{{o.id}}">
+            <span class="badge text-dark ">{{o.id}}</span> {{o.name}}
+          </a>
+        </div>
+        <div class="col-1" *ngIf="_canDelete">
+          <button class="btn btn-danger" title="delete owocek"
+        (click)="deleteOwocek(o)">x</button>
+        </div>
+      </div>
+      
+      </li>
+    </ul>
+  
+  </div>

@@ -1,0 +1,6 @@
+<div *ngIf="messagesService.messages.length">
+    <div *ngFor="let m of messagesService.messages">
+        <li>{{m.content}}   {{m.date | date:'shortTime'}}</li>
+    </div>
+    <button class="btn btn-danger" (click)="clear()">Wyczyść logi</button>
+</div>

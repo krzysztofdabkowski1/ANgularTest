@@ -1,0 +1,12 @@
+<div id="search-component">
+    <label for="search-box">Wyszukaj:   </label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  
+    <ul id="suggestion-list" class="w-100 search-result list-group list-group-item-light position-absolute">
+      <li class="list-group-item w-100" *ngFor="let o of owocki | async; let i=index" [class.list-group-item-secondary]="i==selected">
+        <a #link [routerLink]="['/owocki/details',o.id]">
+          <span class="badge text-secondary"> {{o.name}} </span>
+        </a>
+      </li>
+    </ul>
+</div>

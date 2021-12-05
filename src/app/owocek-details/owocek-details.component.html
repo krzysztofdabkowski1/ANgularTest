@@ -1,0 +1,17 @@
+<div *ngIf="loading">
+  <div class="spinner-border text-info" role="status">
+    <span class="sr-only"></span>
+  </div>
+</div>
+
+<div *ngIf="owocek && !loading">
+    <h2>{{owocek.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{owocek.id}}</div>
+    <div>
+      <label for="owocek-name">Owocek name: </label>
+      <input id="owocek-name" [(ngModel)]="owocek.name" placeholder="name">
+    </div>
+  
+</div>
+  <button class="btn btn-success" (click)="save()">save</button>
+  <button class="btn btn-danger" (click)="goBack()">Cofnij</button>
